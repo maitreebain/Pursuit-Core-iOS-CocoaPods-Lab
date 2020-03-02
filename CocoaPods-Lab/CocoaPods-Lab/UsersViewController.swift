@@ -27,9 +27,26 @@ class UsersViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        userView.collectionView.dataSource = self
+        userView.collectionView.delegate = self
+        userView.collectionView.register(UINib(nibName: "UsersCell", bundle: nil), forCellWithReuseIdentifier: "userCell")
     }
 
 
 }
 
+extension UsersViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return users.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "userCell", for: indexPath) as? UsersCell else {
+            fatalError("could not downcast to UsersCell")
+        }
+        
+        return cell
+    }
+    
+    
+}

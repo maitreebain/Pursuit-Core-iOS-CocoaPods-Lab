@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8059C4DB240D96A500276016 /* UsersCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8059C4DA240D96A500276016 /* UsersCell.xib */; };
+		8059C4DD240D97B000276016 /* UsersAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8059C4DC240D97B000276016 /* UsersAPIClient.swift */; };
+		8059C4DF240D9B0500276016 /* UsersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8059C4DE240D9B0500276016 /* UsersCell.swift */; };
 		808D120D2409383200CB44BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808D120C2409383200CB44BE /* AppDelegate.swift */; };
 		808D120F2409383200CB44BE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808D120E2409383200CB44BE /* SceneDelegate.swift */; };
 		808D12112409383200CB44BE /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808D12102409383200CB44BE /* UsersViewController.swift */; };
@@ -36,6 +39,9 @@
 		61595A05A236A6F7E368AD0E /* Pods_CocoaPods_LabTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CocoaPods_LabTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		64B03EA0C56917099DC0C80B /* Pods_CocoaPods_Lab.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CocoaPods_Lab.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		64C31AEAA4F3E882A2F1AEF7 /* Pods-CocoaPods-Lab.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CocoaPods-Lab.release.xcconfig"; path = "Target Support Files/Pods-CocoaPods-Lab/Pods-CocoaPods-Lab.release.xcconfig"; sourceTree = "<group>"; };
+		8059C4DA240D96A500276016 /* UsersCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UsersCell.xib; sourceTree = "<group>"; };
+		8059C4DC240D97B000276016 /* UsersAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersAPIClient.swift; sourceTree = "<group>"; };
+		8059C4DE240D9B0500276016 /* UsersCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersCell.swift; sourceTree = "<group>"; };
 		808D12092409383200CB44BE /* CocoaPods-Lab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CocoaPods-Lab.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		808D120C2409383200CB44BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		808D120E2409383200CB44BE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -119,8 +125,11 @@
 			children = (
 				808D120C2409383200CB44BE /* AppDelegate.swift */,
 				808D120E2409383200CB44BE /* SceneDelegate.swift */,
+				8059C4DC240D97B000276016 /* UsersAPIClient.swift */,
 				808D122E2409398000CB44BE /* Results.swift */,
 				808D123024093A3800CB44BE /* UsersView.swift */,
+				8059C4DA240D96A500276016 /* UsersCell.xib */,
+				8059C4DE240D9B0500276016 /* UsersCell.swift */,
 				808D123224093A4200CB44BE /* DetailView.swift */,
 				808D12102409383200CB44BE /* UsersViewController.swift */,
 				808D123424093A5000CB44BE /* DetailViewController.swift */,
@@ -224,6 +233,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8059C4DB240D96A500276016 /* UsersCell.xib in Resources */,
 				808D12192409383400CB44BE /* LaunchScreen.storyboard in Resources */,
 				808D12162409383400CB44BE /* Assets.xcassets in Resources */,
 			);
@@ -308,7 +318,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				808D123124093A3800CB44BE /* UsersView.swift in Sources */,
+				8059C4DF240D9B0500276016 /* UsersCell.swift in Sources */,
 				808D123324093A4200CB44BE /* DetailView.swift in Sources */,
+				8059C4DD240D97B000276016 /* UsersAPIClient.swift in Sources */,
 				808D12112409383200CB44BE /* UsersViewController.swift in Sources */,
 				808D120D2409383200CB44BE /* AppDelegate.swift in Sources */,
 				808D122F2409398000CB44BE /* Results.swift in Sources */,
