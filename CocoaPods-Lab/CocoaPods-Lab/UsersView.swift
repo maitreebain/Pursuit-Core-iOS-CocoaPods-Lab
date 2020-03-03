@@ -15,7 +15,7 @@ class UsersView: UIView {
        let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         let cv = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
-        cv.backgroundColor = .systemGroupedBackground
+        cv.backgroundColor = .red
         cv.layer.cornerRadius = 4
         return cv
     }()
@@ -38,7 +38,7 @@ class UsersView: UIView {
         addSubview(collectionView)
         
         collectionView.snp.makeConstraints { (make) in
-            make.top.leading.trailing.bottom.equalTo(self)
+            make.top.leading.trailing.bottom.equalTo(self.safeAreaLayoutGuide)
         }
         
     }
