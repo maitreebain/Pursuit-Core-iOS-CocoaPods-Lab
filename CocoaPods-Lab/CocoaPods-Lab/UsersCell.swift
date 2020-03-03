@@ -22,7 +22,9 @@ class UsersCell: UICollectionViewCell {
             case .failure(let appError):
                 print("no image found: \(appError)")
             case .success(let image):
-                self?.personImage.image = image
+                DispatchQueue.main.async {
+                    self?.personImage.image = image
+                }
             }
         }
         

@@ -11,7 +11,7 @@ import Alamofire
 
 struct UsersAPIClient {
     
-    static func getUsers(completion: @escaping (AFResult<User>) -> ()) {
+    static func getUsers(completion: @escaping (AFResult<[User]>) -> ()) {
         let endpointURL = "https://randomuser.me/api/?results=50"
         
         guard let url = URL(string: endpointURL) else {
@@ -25,9 +25,8 @@ struct UsersAPIClient {
             } else if let data = response.data {
                 do {
                     let results = try JSONDecoder().decode(ResultsWrapper.self, from: data)
-                    if let user = results.results.first {
-                        completion(.success(user))
-                    }
+                    let users = results.results
+                    completion(.success(users))
                 } catch {
                     print("could not decode")
                 }

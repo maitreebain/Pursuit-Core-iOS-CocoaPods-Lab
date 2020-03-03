@@ -30,12 +30,41 @@ class UsersViewController: UIViewController {
         userView.collectionView.dataSource = self
         userView.collectionView.delegate = self
         userView.collectionView.register(UINib(nibName: "UsersCell", bundle: nil), forCellWithReuseIdentifier: "userCell")
+        loadData()
+    }
+    
+    private func loadData(){
+        UsersAPIClient.getUsers { (result) in
+            
+            switch result{
+            case .failure(let error):
+                print("no users found: \(error)")
+            case .success(let users):
+                self.users = users
+            }
+        }
     }
 
 
 }
 
 extension UsersViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let itemSpacing: CGFloat = 10
+        let maxWidth = UIScreen.main.bounds.size.width
+        let numberOfItems: CGFloat = 2
+        let totalSpace: CGFloat = numberOfItems * itemSpacing
+        let itemWidth: CGFloat = (maxWidth - totalSpace) / numberOfItems
+        
+        return CGSize(width: itemWidth, height: itemWidth)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        
+        return UIEdgeInsets(top: 20, left: 8, bottom: 20, right: 8)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return users.count
     }
@@ -46,9 +75,8 @@ extension UsersViewController: UICollectionViewDelegateFlowLayout, UICollectionV
         }
         let user = users[indexPath.row]
         cell.configureCell(for: user)
+        cell.backgroundColor = .red
         return cell
     }
-    
-    
     
 }

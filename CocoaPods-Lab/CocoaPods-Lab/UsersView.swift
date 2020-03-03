@@ -15,7 +15,7 @@ class UsersView: UIView {
        let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         let cv = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
-        cv.backgroundColor = .red
+        cv.backgroundColor = .systemGroupedBackground
         cv.layer.cornerRadius = 4
         return cv
     }()
