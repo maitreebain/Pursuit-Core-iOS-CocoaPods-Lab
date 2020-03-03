@@ -7,8 +7,45 @@
 //
 
 import UIKit
+import SnapKit
 
 class DetailView: UIView {
+    
+    /*
+     showing their full address, phone number, and date of birth
+     */
+    
+    public lazy var imageView: UIImageView = {
+        let iv = UIImageView()
+        iv.image = UIImage(systemName: "photo.fill")
+        return iv
+    }()
+    
+    public lazy var addressLabel: UILabel = {
+        let label = UILabel()
+        label.text = "addy"
+        return label
+    }()
+    
+    public lazy var phoneLabel: UILabel = {
+        let label = UILabel()
+        label.text = "phone"
+        return label
+    }()
+    
+    public lazy var dobLabel: UILabel = {
+        let label = UILabel()
+        label.text = "dob"
+        return label
+    }()
+    
+    public lazy var labelStack: UIStackView = {
+        let stack = UIStackView(arrangedSubviews: [addressLabel, phoneLabel, dobLabel])
+        stack.axis = .vertical
+        stack.distribution = .equalSpacing
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        return stack
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: UIScreen.main.bounds)
@@ -21,7 +58,26 @@ class DetailView: UIView {
     }
     
     private func commonInit() {
+        setUpImageViewConstraint()
         
     }
 
+    private func setUpImageViewConstraint() {
+        addSubview(imageView)
+        
+        imageView.snp.makeConstraints { (make) in
+            make.top.leading.trailing.equalTo(self).inset(8)
+            make.height.equalToSuperview().multipliedBy(0.3)
+        }
+    }
+    
+    private func setUpLabelStackConstraints() {
+        addSubview(labelStack)
+        labelStack.snp.makeConstraints { (make) in
+            make.bottom.equalTo(self).inset(100)
+            make.trailing.leading.equalTo(self).inset(20)
+        }
+    }
+
+    
 }

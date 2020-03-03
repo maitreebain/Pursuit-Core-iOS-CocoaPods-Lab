@@ -44,11 +44,11 @@ class UsersViewController: UIViewController {
             }
         }
     }
-
-
+    
+    
 }
 
-extension UsersViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+extension UsersViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let itemSpacing: CGFloat = 10
@@ -65,6 +65,10 @@ extension UsersViewController: UICollectionViewDelegateFlowLayout, UICollectionV
         return UIEdgeInsets(top: 20, left: 8, bottom: 20, right: 8)
     }
     
+}
+
+
+extension UsersViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return users.count
     }
@@ -79,4 +83,10 @@ extension UsersViewController: UICollectionViewDelegateFlowLayout, UICollectionV
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let user = users[indexPath.row]
+        let detailVC = DetailViewController(user)
+        detailVC.navigationItem.title = "\(user.name.first) \(user.name.last)"
+        navigationController?.pushViewController(detailVC, animated: true)
+    }
 }
