@@ -43,6 +43,7 @@ class DetailView: UIView {
         let stack = UIStackView(arrangedSubviews: [addressLabel, phoneLabel, dobLabel])
         stack.axis = .vertical
         stack.distribution = .equalSpacing
+        stack.spacing = 5
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
     }()
@@ -59,14 +60,14 @@ class DetailView: UIView {
     
     private func commonInit() {
         setUpImageViewConstraint()
-        
+        setUpLabelStackConstraints()
     }
 
     private func setUpImageViewConstraint() {
         addSubview(imageView)
         
         imageView.snp.makeConstraints { (make) in
-            make.top.leading.trailing.equalTo(self).inset(8)
+            make.top.leading.trailing.equalTo(self.safeAreaLayoutGuide).inset(8)
             make.height.equalToSuperview().multipliedBy(0.3)
         }
     }
@@ -74,8 +75,8 @@ class DetailView: UIView {
     private func setUpLabelStackConstraints() {
         addSubview(labelStack)
         labelStack.snp.makeConstraints { (make) in
-            make.bottom.equalTo(self).inset(100)
-            make.trailing.leading.equalTo(self).inset(20)
+            make.bottom.trailing.leading.equalTo(self.safeAreaLayoutGuide).inset(20)
+            make.height.equalToSuperview().multipliedBy(0.2)
         }
     }
 
