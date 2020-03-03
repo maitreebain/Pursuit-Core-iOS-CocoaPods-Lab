@@ -7,44 +7,26 @@
 //
 
 import UIKit
+import ImageKit
 
 class UsersCell: UICollectionViewCell {
     
-    public lazy var userImage: UIImageView = {
-        let image = UIImageView()
-        image.image = UIImage(systemName: "person.fill")
-        return image
-    }()
+    @IBOutlet weak var personImage: UIImageView!
     
-    public lazy var userName: UILabel = {
-       let label = UILabel()
-        label.text = "Name label"
-        return label
-    }()
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        commonInit()
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        commonInit()
-    }
-    
-    private func commonInit() {
-        
-    }
-    
-    private func setUpUserImageConstraints() {
-        
-    }
-    
-    private func setUpNameLabelConstraints() {
-        
-    }
+    @IBOutlet weak var nameLabel: UILabel!
     
     public func configureCell(for user: User) {
+        personImage.getImage(with: user.picture.medium) { [weak self] (result) in
+            
+            switch result {
+            case .failure(let appError):
+                print("no image found: \(appError)")
+            case .success(let image):
+                self?.personImage.image = image
+            }
+        }
         
+        nameLabel.text = "\(user.name.first) \(user.name.last)"
     }
+    
 }

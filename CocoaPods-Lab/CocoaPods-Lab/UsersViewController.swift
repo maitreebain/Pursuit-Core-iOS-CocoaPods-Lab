@@ -44,9 +44,11 @@ extension UsersViewController: UICollectionViewDelegateFlowLayout, UICollectionV
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "userCell", for: indexPath) as? UsersCell else {
             fatalError("could not downcast to UsersCell")
         }
-        
+        let user = users[indexPath.row]
+        cell.configureCell(for: user)
         return cell
     }
+    
     
     
 }

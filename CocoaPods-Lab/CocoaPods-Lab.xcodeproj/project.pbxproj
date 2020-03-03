@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8027604E240E836A00B53055 /* ImageKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8027604D240E836A00B53055 /* ImageKit */; };
 		8059C4DB240D96A500276016 /* UsersCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8059C4DA240D96A500276016 /* UsersCell.xib */; };
 		8059C4DD240D97B000276016 /* UsersAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8059C4DC240D97B000276016 /* UsersAPIClient.swift */; };
 		8059C4DF240D9B0500276016 /* UsersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8059C4DE240D9B0500276016 /* UsersCell.swift */; };
@@ -66,6 +67,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB8645E6B88B4111074AF97A /* Pods_CocoaPods_Lab.framework in Frameworks */,
+				8027604E240E836A00B53055 /* ImageKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -167,6 +169,9 @@
 			dependencies = (
 			);
 			name = "CocoaPods-Lab";
+			packageProductDependencies = (
+				8027604D240E836A00B53055 /* ImageKit */,
+			);
 			productName = "CocoaPods-Lab";
 			productReference = 808D12092409383200CB44BE /* CocoaPods-Lab.app */;
 			productType = "com.apple.product-type.application";
@@ -218,6 +223,9 @@
 				Base,
 			);
 			mainGroup = 808D12002409383200CB44BE;
+			packageReferences = (
+				8027604C240E836A00B53055 /* XCRemoteSwiftPackageReference "ImageKit" */,
+			);
 			productRefGroup = 808D120A2409383200CB44BE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -588,6 +596,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8027604C240E836A00B53055 /* XCRemoteSwiftPackageReference "ImageKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/alexpaul/ImageKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.5;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8027604D240E836A00B53055 /* ImageKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8027604C240E836A00B53055 /* XCRemoteSwiftPackageReference "ImageKit" */;
+			productName = ImageKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 808D12012409383200CB44BE /* Project object */;
 }
